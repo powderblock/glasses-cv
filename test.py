@@ -1,11 +1,11 @@
 import cv2, numpy as np
 2
-TRAINSET = "frontalEyes35x16.xml"
+eyeData = "frontalEyes35x16.xml"
 DOWNSCALE = 2
  
 webcam = cv2.VideoCapture(0)
 cv2.namedWindow("preview")
-classifier = cv2.CascadeClassifier(TRAINSET)
+classifier = cv2.CascadeClassifier(eyeData)
 
 glasses = cv2.imread('glasses.png', cv2.IMREAD_UNCHANGED)
  
@@ -16,11 +16,11 @@ else:
 
 while rval:
  
-    # detect faces and draw bounding boxes
+    # detect eyes and draw glasses
     minisize = (frame.shape[1]/DOWNSCALE,frame.shape[0]/DOWNSCALE)
     miniframe = cv2.resize(frame, minisize)
-    faces = classifier.detectMultiScale(miniframe)
-    for f in faces:
+    eye = classifier.detectMultiScale(miniframe)
+    for f in eye:
         x, y, w, h = [ v*DOWNSCALE for v in f ]
         smallglasses = cv2.resize(glasses, (w, h))
         bg = frame[y:y+h, x:x+w]
