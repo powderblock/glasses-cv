@@ -6,12 +6,14 @@ OpenCV example. Show webcam image and detect face.
  
 import cv2
  
-TRAINSET = "frontalEyes35x16.xml"
+faceXML = "haarcascade_frontalface_alt.xml"
+eyes = "frontalEyes35x16.xml"
 DOWNSCALE = 2
  
 webcam = cv2.VideoCapture(0)
 cv2.namedWindow("preview")
-classifier = cv2.CascadeClassifier(TRAINSET)
+face = cv2.CascadeClassifier(faceXML)
+eye = cv2.CascadeClassifier(eyes)
  
  
 if webcam.isOpened(): # try to get the first frame
@@ -24,8 +26,12 @@ while rval:
     # detect faces and draw bounding boxes
     minisize = (frame.shape[1]/DOWNSCALE,frame.shape[0]/DOWNSCALE)
     miniframe = cv2.resize(frame, minisize)
-    faces = classifier.detectMultiScale(miniframe)
+    faces = face.detectMultiScale(miniframe)
     for f in faces:
+        x, y, w, h = [ v*DOWNSCALE for v in f ]
+        cv2.rectangle(frame, (x,y), (x+w,y+h), (0,0,255))
+    eyes = eye.detectMultiScale(miniframe)
+    for f in eyes:
         x, y, w, h = [ v*DOWNSCALE for v in f ]
         cv2.rectangle(frame, (x,y), (x+w,y+h), (0,0,255))
  
