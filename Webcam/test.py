@@ -27,6 +27,7 @@ while rval:
     for f in eye:
         x, y, w, h = [ v*DOWNSCALE for v in f ]
         h = w / ratio
+        y += h / 2
         # resize glasses to a new var called small glasses
         smallglasses = cv2.resize(glasses, (w, h))
         # the area you want to change
