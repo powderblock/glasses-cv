@@ -1,7 +1,7 @@
 import cv2, numpy as np
 eyeData = "eyes.xml"
 faceData = "face.xml"
-DOWNSCALE = 1
+DOWNSCALE = 3
 
 cv2.namedWindow("preview")
 eyeClass = cv2.CascadeClassifier(eyeData)
@@ -9,7 +9,7 @@ faceClass = cv2.CascadeClassifier(faceData)
 
 glasses = cv2.imread('glasses.png', cv2.IMREAD_UNCHANGED)
 fedora = cv2.imread('fedora.png', cv2.IMREAD_UNCHANGED)
-frame = cv2.imread('10676365_10202477057759920_3838041100484674948_n.jpg')
+frame = cv2.imread('face.jpg')
 
 ratio = glasses.shape[1] / glasses.shape[0]
 # detect eyes and draw glasses

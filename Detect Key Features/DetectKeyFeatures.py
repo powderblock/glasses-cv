@@ -1,9 +1,7 @@
 import cv2, numpy as np
 eyeData = "eyes.xml"
 faceData = "face.xml"
-mouthData = "mouth.xml"
-noseData = "nose.xml"
-DOWNSCALE = 8
+DOWNSCALE = 1
 
 # make a window
 cv2.namedWindow("Face Test")
@@ -12,10 +10,9 @@ faceClass = cv2.CascadeClassifier(faceData)
 eyeClass = cv2.CascadeClassifier(eyeData)
 
 # load the image we want to detect features on
-frame = cv2.imread('putin.jpg')
+frame = cv2.imread('10256963_10203853201583030_6206259209714541315_n.jpg')
 
 # detect face(s)
-# first
 minisize = (frame.shape[1]/DOWNSCALE,frame.shape[0]/DOWNSCALE)
 miniframe = cv2.resize(frame, minisize)
 faces = faceClass.detectMultiScale(miniframe)
