@@ -2,7 +2,7 @@ import cv2
 
 def detect(path):
     img = cv2.imread(path)
-    cascade = cv2.CascadeClassifier("face.xml")
+    cascade = cv2.CascadeClassifier("xml/face.xml")
     rects = cascade.detectMultiScale(img, 1.3, 4, cv2.cv.CV_HAAR_SCALE_IMAGE, (20,20))
 
     if len(rects) == 0:
@@ -15,5 +15,5 @@ def box(rects, img):
         cv2.rectangle(img, (x1, y1), (x2, y2), (127, 255, 0), 2)
     cv2.imwrite('images/output/output.png', img);
 
-rects, img = detect("images/10256963_10203853201583030_6206259209714541315_n.jpg")
+rects, img = detect("images/putin.jpg")
 box(rects, img)
