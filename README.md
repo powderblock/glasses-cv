@@ -4,7 +4,7 @@ dank-cv
 
 Processin' those dank images with may mays, in OpenCV using Python.
 
-Should add some sw33t sunglasses onto pictures right now, m8.
+Should add some sw33t sunglasses onto pictures and videos right now, m8.
 
 Credits
 -------
