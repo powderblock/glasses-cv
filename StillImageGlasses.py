@@ -18,6 +18,8 @@ miniframe = cv2.resize(frame, minisize)
 eyes = eyeClass.detectMultiScale(miniframe)
 faces = faceClass.detectMultiScale(miniframe)
 
+print len(eyes)
+
 for eye in eyes:
     x, y, w, h = [v * DOWNSCALE for v in eye]
     h = w / ratio
