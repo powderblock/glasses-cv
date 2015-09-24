@@ -1,7 +1,7 @@
 glasses-cv
 =======
 
-glasses-cv is a Python resource for detecting and analyzing facials features in video and images.
+glasses-cv is a Python resource for detecting and analyzing facial features in video and images.
 This is done using OpenCV.
 
 Credits
