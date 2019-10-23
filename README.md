@@ -8,5 +8,5 @@ Credits
 -------
 
 Code developed by ([@powderblock](https://github.com/powderblock)).
-Heavily consulting Caleb Jones ([@porglezomp](https://github.com/porglezomp)) for help.
+Heavy consulting Caleb Jones ([@porglezomp](https://github.com/porglezomp)) for help.
 Uses [OpenCV](http://opencv.org/) for computer vision, image loading, image processing, etc. 
